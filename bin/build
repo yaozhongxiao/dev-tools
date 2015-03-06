@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+here=`pwd`
+target_dir="$here"
+
+while [ ! -f "$target_dir/.build" -a "$target_dir" != "/" ]; do
+  target_dir=`dirname "$target_dir"`
+done
+
+if [ -f "$target_dir/.build" ]; then
+  cd "$target_dir"
+  cwd="$here" exec ./.build $@
+else
+  make $@
+fi
