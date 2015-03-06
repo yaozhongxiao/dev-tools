@@ -91,6 +91,16 @@ set noshowcmd
 let Tlist_Use_Right_Window=1
 let Tlist_File_Fold_Auto_Close=1
 
+"showmarks related
+let showmarks_enable=1
+" Show which marks
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+" Ignore help, quickfix, non-modifiable buffers
+let showmarks_ignore_type = "hqm"
+" Hilight lower & upper marks
+let showmarks_hlline_lower = 1
+let showmarks_hlline_upper = 1
+
 " ------------------------- Modes ------------------------------
 "
 function EnglishMode()
