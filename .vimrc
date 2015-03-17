@@ -8,7 +8,7 @@ map <silent> ,4 :diffget 4<CR> :diffupdate<CR>
 
 "--------------------------general setting------------------------------------
 "
-"colorscheme elflord    " elflord ron peachpuff default 设置配色方案，vim自带的配色方案保存在/usr/share/vim/vim72/colors目录下
+colorscheme desert           " elflord ron peachpuff default 设置配色方案，vim自带的配色方案保存在/usr/share/vim/vim72/colors目录下
 set background=dark
 
 set t_Co=8                   "设置颜色显示
@@ -43,6 +43,7 @@ set nu!                      " 显示行号
 "set mouse=a                 " 启用鼠标
 set incsearch                " 开启实时搜索功能
 set hlsearch                 " 开启高亮显示结果
+set hls                      " 开启高亮显示
 "set nowrapscan               " 搜索到文件两端时不重新搜索
 "set hidden                   " 允许在有未保存的修改时切换缓冲区
 set autochdir                " 设定文件浏览器目录为当前目录
@@ -53,7 +54,7 @@ set autoread                 " 当文件在外部被修改时自动更新该文�
 set nobackup                 " 不生成备份文件
 set noswapfile               " 不生成交换文件
 "set list                     
-set listchars=trail:.
+"set listchars=trail:.
 "set listchars=tab:\~\ ,trail:. " 显示特殊字符，其中Tab使用高亮~代替，尾部空白使用高亮点号代替
 set expandtab                " 将Tab自动转化成空格 [需要输入真正的Tab键时，使用Ctrl+V Tab]
 set showmatch                " 显示括号配对情况
@@ -66,11 +67,11 @@ filetype plugin on           " 针对不同的文件类型加载对应的插件
 filetype plugin indent on    " 启用自动补全
 set showcmd                  " 命令行显示输入的命令
 set showmode                 " 命令行显示vim当前模式
-highlight SpecialKey ctermbg=Red guibg=Red
+"highlight SpecialKey ctermbg=Red guibg=Red
 
 "--------------------------file-encodings-------------------------------------
 set encoding=utf-8
-set langmenu=zh_CN.UTF-8
+"set langmenu=zh_CN.UTF-8
 "language message zh_CN.UTF-8
 set fileencodings=utf-8,chinese
 "set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
@@ -82,7 +83,8 @@ set fileencodings=utf-8,chinese
 let g:winManagerWindowLayout = "FileExplorer"
 map <C-W><C-F> :FirstExplorerWindow<CR>
 map <C-W><C-B> :BottomExplorerWindow<CR>
-map <C-W><C-T> :WMToggle<CR> 
+"set the key wm for WMToggle
+nmap wm :WMToggle<CR>  
 
 " gdbvim related
 set noshowcmd
@@ -145,4 +147,4 @@ endfunction
 command -nargs=0 CodeLayoutClose call CodeLayoutClose()
 
 " ======================= Functions ==========================
-
+map tl :TlistToggle<CR> 
