@@ -148,3 +148,4 @@ command -nargs=0 CodeLayoutClose call CodeLayoutClose()
 
 " ======================= Functions ==========================
 map tl :TlistToggle<CR> 
+nmap <C-h> :A <CR>
