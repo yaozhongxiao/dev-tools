@@ -83,8 +83,6 @@ set fileencodings=utf-8,chinese
 let g:winManagerWindowLayout = "FileExplorer"
 map <C-W><C-F> :FirstExplorerWindow<CR>
 map <C-W><C-B> :BottomExplorerWindow<CR>
-"set the key wm for WMToggle
-nmap wm :WMToggle<CR>  
 
 " gdbvim related
 set noshowcmd
@@ -146,6 +144,19 @@ function CodeLayoutClose()
 endfunction
 command -nargs=0 CodeLayoutClose call CodeLayoutClose()
 
-" ======================= Functions ==========================
+" ======================= set short-key ==========================
+"tag list
 map tl :TlistToggle<CR> 
-nmap <C-h> :A <CR>
+
+" switch .h .cxx
+nnoremap <silent> <F11> :A <CR>
+
+"jump to target buffer
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
+
+"set the key wm for WMToggle
+nmap wm :WMToggle<CR>
+
