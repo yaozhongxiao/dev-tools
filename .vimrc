@@ -149,7 +149,8 @@ command -nargs=0 CodeLayoutClose call CodeLayoutClose()
 map tl :TlistToggle<CR> 
 
 " switch .h .cxx
-nnoremap <silent> <F11> :A <CR>
+nnoremap ,a :A<CR>
+nnoremap ,h :IH<CR>
 
 "jump to target buffer
 nmap <C-j> <C-W>j
@@ -158,5 +159,6 @@ nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
 
 "set the key wm for WMToggle
-nmap wm :WMToggle<CR>
+nmap wm :WMToggle<CR>  
+
 
