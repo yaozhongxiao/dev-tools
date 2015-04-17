@@ -1,11 +1,5 @@
 ﻿set nocompatible             " 关闭兼容模式
 
-"----------------------- 设置 vimdiff  vimmerge do dp 快捷键-----------------
-map <silent> ,2 :diffget 2<CR> :diffupdate<CR>
-map <silent> ,3 :diffget 3<CR> :diffupdate<CR>
-map <silent> ,4 :diffget 4<CR> :diffupdate<CR>
-
-
 "--------------------------general setting------------------------------------
 "
 colorscheme desert           " elflord ron peachpuff default 设置配色方案，vim自带的配色方案保存在/usr/share/vim/vim72/colors目录下
@@ -20,8 +14,9 @@ set autowrite                " 自动把内容写回文件: 如果文件被修�
                              " :next :rewind :last :first :previous :stop :suspend :tag :!、:make、CTRL-] 和
                              " CTRL-^命令时进行；用 :buffer、CTRL-O、CTRL-I、'{A-Z0-"9} 或 `{A-Z0-9} 命令转到别的文件时亦然。
 set smarttab
+set expandtab                " 将Tab自动转化成空格 [需要输入真正的Tab键时，使用Ctrl+V Tab]
 set tabstop=4                " 设置制表符(tab键)的宽度
-set softtabstop=4            " 设置软制表符的宽度    
+set softtabstop=4            " 设置软制表符的宽度
 set shiftwidth=4             " (自动) 缩进使用的4个空格
 set cindent                  " 使用 C/C++ 语言的自动缩进方式
 set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s     "设置C/C++语言的具体缩进方式
@@ -53,10 +48,9 @@ set cmdheight=2              " 命令行的高度，默认为1，这里设为2
 set autoread                 " 当文件在外部被修改时自动更新该文件
 set nobackup                 " 不生成备份文件
 set noswapfile               " 不生成交换文件
-"set list                     
+"set list
 "set listchars=trail:.
 "set listchars=tab:\~\ ,trail:. " 显示特殊字符，其中Tab使用高亮~代替，尾部空白使用高亮点号代替
-set expandtab                " 将Tab自动转化成空格 [需要输入真正的Tab键时，使用Ctrl+V Tab]
 set showmatch                " 显示括号配对情况
 "set nowrap                  " 设置不自动换行
 syntax enable                " 打开语法高亮
@@ -146,11 +140,25 @@ command -nargs=0 CodeLayoutClose call CodeLayoutClose()
 
 " ======================= set short-key ==========================
 "tag list
-map tl :TlistToggle<CR> 
+map tl :TlistToggle<CR>
 
-" switch .h .cxx
+"switch .h .cxx
 nnoremap ,a :A<CR>
+"edit included files
 nnoremap ,h :IH<CR>
+"show file info
+nnoremap ,f :file<CR>
+"edit the input file
+nnoremap ,e :e
+"show files buf list
+nmap ,l :ls<CR>
+nmap ,lp :bp<CR>
+nmap ,ln :bn<CR>
+"edit specified buffer content
+"like :bn :bp :b1
+nnoremap ,b :b
+
+
 
 "jump to target buffer
 nmap <C-j> <C-W>j
@@ -159,6 +167,17 @@ nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
 
 "set the key wm for WMToggle
-nmap wm :WMToggle<CR>  
+nmap wm :WMToggle<CR>
 
-
+"--------------setting for diff---------------------
+if &diff
+    colors evening
+    map ,k [c
+    map ,j ]c
+    map ,g do
+    map ,p dp
+endif
+"----------------------- 设置 vimdiff  vimmerge do dp 快捷键-----------------
+map <silent> ,2 :diffget 2<CR> :diffupdate<CR>
+map <silent> ,3 :diffget 3<CR> :diffupdate<CR>
+map <silent> ,4 :diffget 4<CR> :diffupdate<CR>
