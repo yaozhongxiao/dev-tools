@@ -955,6 +955,7 @@ function! s:AddHeader()
 	1
 	if w:longhelp==1
 		let @f="\" <enter> : open file or directory\n"
+			\."\" a : ShowAllFiles\n" 
 			\."\" S : open the file/folder with external program\n"
 			\."\" o : open new window for file/directory\n"
 			\."\" O : open file in previously visited window\n"
