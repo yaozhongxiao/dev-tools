@@ -1,0 +1,25 @@
+﻿set fileformat=unix
+"--------------setting for diff---------------------
+if &diff
+    colors evening
+    map ,k [c
+    map ,j ]c
+    map ,g do
+    map ,p dp
+endif
+"----------------------- 设置 vimdiff  vimmerge do dp 快捷键-----------------
+map <silent> ,1 :diffget 1<CR> :diffupdate<CR>
+map <silent> ,2 :diffget 2<CR> :diffupdate<CR>
+map <silent> ,3 :diffget 3<CR> :diffupdate<CR>
+map <silent> ,4 :diffget 4<CR> :diffupdate<CR>
+
+"----------------------- 设置 code format 快捷键-----------------
+"map <C-m> :pyf3 ~/Workspace/devTool/clang/clang-format.py<cr>
+"imap <C-K> <c-o>:pyf3 ~/Workspace/devTool/clang/clang-format.py<cr>
+
+"let g:clang_format#detect_style_file = '~/.vim/.clang_format'
+"let g:clang_format#code_style = "llvm"
+let g:clang_format#detect_style_file=1
+let g:clang_format#auto_format=0
+autocmd FileType c,cpp,objc map <c-m> :ClangFormat<CR>
+
