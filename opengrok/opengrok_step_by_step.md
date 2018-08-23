@@ -78,6 +78,10 @@ export OPENGROK_PATH="/opt/yaozhongxiao/opengrok-0.12.1.5"
 其中opengrok可以的部署在${OPENGROK_TOMCAT_BASE}/webapps/webapp-context中webapp-context的名字  
 并且-w 和OPENGROK_WEBAPP_CONTEXT必须保持一致)
 
+[could not append options when using "bin/OpenGrok index" #1086](https://github.com/oracle/opengrok/issues/1086)
+
+https://stackoverflow.com/questions/35273644/opengrok-http-status-404-source-s-when-trying-to-open-cpp-file-via-an-xref
+
 ```  
   2 #****************************************************************#
   3 # ScriptName: opengrok_indexing.sh
